@@ -33,11 +33,11 @@ install:  ## Install Python + Node deps and init the upstream submodule.
 	fi
 	.venv/bin/pip install --quiet -r requirements.txt
 	cd remotion && npm install --silent
-	git submodule update --init data_sources/OIerDb-data-generator
+	git submodule update --init OIerDb-data-generator
 
 # ─── pipeline atoms ──────────────────────────────────────────────────────────
 update-data:  ## Pull the latest OIerDb data submodule.
-	git submodule update --remote data_sources/OIerDb-data-generator
+	git submodule update --remote OIerDb-data-generator
 
 doctor:  ## Pre-flight: warn about contest types missing from month_mapping.
 	@$(PY) -c "$$DOCTOR_PY"
@@ -79,7 +79,7 @@ from pathlib import Path
 ROOT = Path(".").resolve()
 sys.path.insert(0, str(ROOT / "src"))
 from month_mapping import CONTEST_MONTH
-contests_json = ROOT / "data_sources" / "OIerDb-data-generator" / "static" / "contests.json"
+contests_json = ROOT / "OIerDb-data-generator" / "static" / "contests.json"
 if not contests_json.exists():
     print("\033[33m⚠ data submodule not initialised — run `make install` first.\033[0m",
           file=sys.stderr); sys.exit(0)

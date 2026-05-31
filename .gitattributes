@@ -32,7 +32,7 @@ Makefile text eol=lf
 
 # ─── GitHub Linguist hints ───────────────────────────────────────────────────
 # Don't let the bundled upstream data submodule skew language stats.
-data_sources/**                linguist-vendored
+OIerDb-data-generator/**                linguist-vendored
 remotion/public/snapshots.json linguist-generated
 output/**                      linguist-generated
 docs/preview.gif               linguist-generated

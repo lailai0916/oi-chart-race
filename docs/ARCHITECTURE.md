@@ -6,7 +6,7 @@ A small project, but a few non-obvious design decisions are worth recording.
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────┐
-│  data_sources/OIerDb-data-generator/  (git submodule, AGPL-3.0)        │
+│  OIerDb-data-generator/  (git submodule, AGPL-3.0)        │
 │  • data/raw.txt        ~293 000 award records                          │
 │  • data/school.txt     ~13 800 schools + alias merges                  │
 │  • static/contests.json  138 contests, type/year/full-score            │
@@ -42,7 +42,7 @@ A small project, but a few non-obvious design decisions are worth recording.
                      output/ranking_race.mp4
 ```
 
-Everything below `data_sources/` is **regenerable**. Nothing in `output/`
+Everything below `OIerDb-data-generator/` is **regenerable**. Nothing in `output/`
 or `remotion/public/snapshots.json` should be committed.
 
 ## Why a shared `config.json`?
@@ -131,5 +131,5 @@ of an AGPL-3.0 project, so we are AGPL-3.0 ourselves.
 |---|---|
 | Upstream adds a new contest type | Snapshot silently drops those records. `make doctor` warns at build time. |
 | Upstream adds a school whose province is not in `colors.ts` | Bar renders with the grey fallback colour. |
-| `data_sources/` submodule uninitialised | `make doctor` warns; snapshot would fail with a clearer error. |
+| `OIerDb-data-generator/` submodule uninitialised | `make doctor` warns; snapshot would fail with a clearer error. |
 | Fonts missing on Linux | `noto-cjk` covers the Chinese; install via `apt install fonts-noto-cjk`. CI workflow does this automatically. |

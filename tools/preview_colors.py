@@ -42,7 +42,7 @@ def load_colors():
 
 # ─── NOI gold counts (same logic as previous stats runs) ─────────────────────
 def load_noi_gold():
-    base = ROOT / "data_sources" / "OIerDb-data-generator"
+    base = ROOT / "OIerDb-data-generator"
     with open(base / "static" / "contests.json", encoding="utf-8") as f:
         ctype = {c["name"]: c["type"] for c in json.load(f)}
     school_prov = {}

@@ -13,7 +13,7 @@ from collections import defaultdict
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-DATA_GEN_DIR = REPO_ROOT / "data_sources" / "OIerDb-data-generator"
+DATA_GEN_DIR = REPO_ROOT / "OIerDb-data-generator"
 sys.path.insert(0, str(REPO_ROOT / "src"))
 sys.path.insert(0, str(DATA_GEN_DIR))
 
