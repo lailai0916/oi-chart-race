@@ -20,6 +20,7 @@ from PIL import Image, ImageDraw, ImageFont
 W, H = 3840, 2160
 BG = (0, 0, 0)
 INK = (242, 244, 248)        # bright white
+INK_MID = (208, 213, 222)    # mid gray — for "weighted" secondary text
 INK_SOFT = (154, 160, 170)   # soft gray
 INK_MUTE = (92, 99, 112)     # mute gray
 ACCENT = (10, 132, 255)      # iOS system blue
@@ -113,11 +114,11 @@ def latin(size, weight=400):
 # A shared vertical grid so the two cards read as bookends of one system:
 #   eyebrow (tracked label) · hero (the one focal word) · accent hairline · meta
 CX = W // 2                 # horizontal centre
-EYEBROW_CY = 742            # vertical centre of the eyebrow label
-HERO_CY = 968               # vertical centre of the hero line
-RULE_CY = 1158              # accent hairline — sits in the river between hero & meta
-META_CY = 1280              # vertical centre of the meta line
-RULE_W, RULE_H = 132, 3     # hairline width / thickness (4K px)
+EYEBROW_CY = 782            # vertical centre of the eyebrow label
+HERO_CY = 1008              # vertical centre of the hero line
+RULE_CY = 1198              # accent hairline — sits in the river between hero & meta
+META_CY = 1320              # vertical centre of the meta line
+RULE_W, RULE_H = 180, 4     # hairline width / thickness (4K px)
 
 
 def line(draw, text, cy, font, fill, tracking=0.0):
@@ -147,10 +148,10 @@ def hairline(draw, cy, color=ACCENT, width=RULE_W, thick=RULE_H):
 def title_card():
     img = Image.new("RGB", (W, H), BG)
     d = ImageDraw.Draw(img)
-    line(d, "2004 — 2026", EYEBROW_CY, latin(50, weight=500), INK_SOFT, tracking=28)
+    line(d, "2004 — 2026", EYEBROW_CY, latin(64, weight=620), INK_MID, tracking=32)
     line(d, "信息学奥林匹克竞赛", HERO_CY, cjk(232, semibold=True), INK, tracking=10)
     hairline(d, RULE_CY)
-    line(d, "学校评分排名", META_CY, cjk(58), INK_SOFT, tracking=22)
+    line(d, "学校评分排名", META_CY, cjk(72, semibold=True), INK_MID, tracking=26)
     img.save(OUT / "title_card.png", "PNG", optimize=True)
     print("✓ output/title_card.png")
 
@@ -158,10 +159,10 @@ def title_card():
 def end_card():
     img = Image.new("RGB", (W, H), BG)
     d = ImageDraw.Draw(img)
-    line(d, "数 据 来 源", EYEBROW_CY, cjk(50), INK_SOFT, tracking=24)
+    line(d, "数 据 来 源", EYEBROW_CY, cjk(64, semibold=True), INK_MID, tracking=28)
     line(d, "OIerDb", HERO_CY, latin(248, weight=600), INK)
     hairline(d, RULE_CY)
-    line(d, "github.com/lailai0916/oi-chart-race", META_CY, latin(56, weight=400), INK_SOFT, tracking=4)
+    line(d, "github.com/lailai0916/oi-chart-race", META_CY, latin(68, weight=540), INK_MID, tracking=4)
     img.save(OUT / "end_card.png", "PNG", optimize=True)
     print("✓ output/end_card.png")
 
