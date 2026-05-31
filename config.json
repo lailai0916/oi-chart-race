@@ -1,0 +1,31 @@
+{
+  "_comment": "Shared configuration consumed by both the Python pipeline and the Remotion renderer. Edit this file, then run `make video` (or `bin/refresh.sh`) to regenerate.",
+
+  "formula": "legacy",
+  "_formula_doc": "'v2' = bounded harmonic-decay (recommended). 'legacy' = OIerDb's official 1.25^(year-2000) exponential.",
+
+  "interp": "annual",
+  "_interp_doc": "'event-annual' (recommended): each school's cumulative score is anchored at events ∪ every December, then PCHIP-interpolated (monotone cubic Hermite). 'annual': only December milestones with plain linear interp. 'event-annual' fixes the 'phantom long-ramp' bug for schools that drop out of Top-N and re-enter much later.",
+
+  "trackTopN": 50,
+  "_trackTopN_doc": "How many ranks the snapshot script records per month. Must be >= displayTopN + ~10 for smooth boundary swaps.",
+
+  "displayTopN": 30,
+  "_displayTopN_doc": "How many rows the animation actually shows.",
+
+  "fps": 120,
+  "framesPerMonth": 120,
+  "holdStartSec": 1.5,
+  "holdEndSec": 3,
+
+  "smoothSigmaMonths": 0.15,
+  "_smoothSigmaMonths_doc": "Gaussian smoothing width on the rank trajectory. Smaller = snappier swaps, larger = more drifting motion.",
+
+  "contestBadge": {
+    "leadMonths": 0.3,
+    "holdMonths": 0.8,
+    "fadeMonths": 1.5,
+    "tieSpreadMonths": 0.08
+  },
+  "_contestBadge_doc": "Independent-clock asymmetric lifetimes (bottom-right stack). Each event has its own timer: a brief `leadMonths` anticipation fade-in, `holdMonths` of full prominence right after it happens, then a long elegant `fadeMonths` decay back to invisible. Same-month events (e.g. NOI/NOID类/NOIST in July) are nudged onto a `tieSpreadMonths` micro-spread so the stack has a deterministic order. The stack itself smoothly reflows as opacities change — no per-badge translate animation, the slot motion IS the entrance/exit."
+}

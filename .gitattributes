@@ -1,2 +1,41 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+# ─── Line endings ────────────────────────────────────────────────────────────
+# Normalize all text files to LF in the repo; checkout uses the OS default.
+* text=auto eol=lf
+
+# Shell scripts, Python, and Makefile: refuse CRLF, those tools choke on it.
+*.sh   text eol=lf
+*.py   text eol=lf
+Makefile text eol=lf
+
+# Windows-only files: keep CRLF if any ever land here.
+*.bat  text eol=crlf
+*.cmd  text eol=crlf
+*.ps1  text eol=crlf
+
+# ─── Binary files ────────────────────────────────────────────────────────────
+*.mp4  binary
+*.mp3  binary
+*.wav  binary
+*.m4a  binary
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.gif  binary
+*.webp binary
+*.ico  binary
+*.parquet binary
+*.ttf  binary
+*.otf  binary
+*.ttc  binary
+*.woff binary
+*.woff2 binary
+
+# ─── GitHub Linguist hints ───────────────────────────────────────────────────
+# Don't let the bundled upstream data submodule skew language stats.
+data_sources/**                linguist-vendored
+remotion/public/snapshots.json linguist-generated
+output/**                      linguist-generated
+docs/preview.gif               linguist-generated
+
+# ─── Diff hints ──────────────────────────────────────────────────────────────
+*.json diff=json
