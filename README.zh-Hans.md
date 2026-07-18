@@ -9,13 +9,15 @@
   </p>
 </div>
 
+## 项目简介
+
 > 用 [OIerDb](https://oier.baoshuo.dev) 的全量公开数据，从 2004 年起逐月回放中国信息学奥林匹克竞赛的 **学校积分排名** 演变，输出 4K bar-chart-race 动画。
 
 ![demo](docs/preview.gif)
 
 > 完整 4K MP4 在 [GitHub Releases](../../releases) 下载（每周一自动更新）。
 
-## 特点
+## 项目特性
 
 - **数据完全来自 OIerDb 公开仓库** — 不抓站、不爬数据，用官方 git submodule
 - **两种打分公式可选** — 沿用 OIerDb 官方的指数衰减 (`legacy`)，或本项目提出的有界谐和衰减 (`v2`)，详见 [`docs/FORMULAS.md`](docs/FORMULAS.md)
@@ -59,7 +61,23 @@ make compare       # 跑 legacy ↔ v2 公式 Top-100 差异对比
 make clean         # 删除渲染产物
 ```
 
-## 流水线
+## 项目结构
+
+```bash
+oi-chart-race/
+├── OIerDb-data-generator/          # 上游数据子模块
+├── docs/                           # 公式、预览与说明
+├── output/                         # 生成的数据与视频
+├── remotion/                       # React 视频项目
+│   └── src/                        # 动画源代码
+├── src/                            # 数据处理流水线
+├── tools/                          # 卡片与后期制作脚本
+├── config.json                     # 流水线配置
+├── Makefile                        # 可复现命令
+└── requirements.txt                # Python 依赖
+```
+
+## 项目流程
 
 ```
                 ┌─────────────────────────────────────┐
@@ -93,7 +111,7 @@ make clean         # 删除渲染产物
 
 更详细的设计取舍见 [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)。
 
-## 配置
+## 项目配置
 
 所有可调参数集中在 [`config.json`](./config.json)：
 
@@ -120,7 +138,7 @@ make clean         # 删除渲染产物
 
 省份配色在 [`remotion/src/colors.ts`](remotion/src/colors.ts)；赛事 → 月份映射在 [`src/month_mapping.py`](src/month_mapping.py)。
 
-## 两种公式
+## 计分公式
 
 | 维度     | `legacy` (OIerDb 官方)  | `v2` (本项目提案)                 |
 | -------- | ----------------------- | --------------------------------- |
@@ -133,7 +151,7 @@ make clean         # 删除渲染产物
 
 完整论证、字段定义、想自加公式的同学请看 [`docs/FORMULAS.md`](docs/FORMULAS.md)。
 
-## 后期合成
+## 后期制作
 
 `make final` 把渲染好的主体动画包装成成片：
 
@@ -148,7 +166,7 @@ make clean         # 删除渲染产物
 BGM_START=30 MUSIC_VOL=0.7 AFADE_OUT=8 make final
 ```
 
-## 致谢
+## 项目致谢
 
 - **数据 + 官方公式**：[@renbaoshuo (Baoshuo)](https://github.com/renbaoshuo) 维护的 [OIerDb-ng](https://github.com/OIerDb-ng)
 - **可视化栈**：[Remotion](https://www.remotion.dev/) + [d3](https://d3js.org/)
@@ -156,7 +174,7 @@ BGM_START=30 MUSIC_VOL=0.7 AFADE_OUT=8 make final
 
 如果在论文 / 视频 / 媒体中使用本项目生成的画面，烦请附上以上来源链接，谢谢 🙏
 
-## 引用
+## 引用指南
 
 ```bibtex
 @misc{oi_chart_race,
@@ -170,4 +188,4 @@ BGM_START=30 MUSIC_VOL=0.7 AFADE_OUT=8 make final
 
 ## 许可协议
 
-**AGPL-3.0-or-later** — 本项目在运行时 `import` 上游 `OIerDb-ng/OIerDb-data-generator` (AGPL-3.0) 的模块，构成衍生作品，须同协议。完整条款见 [`LICENSE`](LICENSE)。
+本项目代码采用 [AGPL-3.0-or-later](LICENSE)。项目运行时会导入采用 AGPL-3.0 的上游 `OIerDb-ng/OIerDb-data-generator` 模块。
