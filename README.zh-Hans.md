@@ -99,20 +99,20 @@ make clean         # 删除渲染产物
 
 ```jsonc
 {
-  "formula": "legacy",            // 'legacy' (OIerDb 官方) 或 'v2' (本项目提案)
-  "displayTopN": 30,              // 视频中显示前几名
-  "trackTopN": 50,                // 后台跟踪范围 (≥ displayTopN + 缓冲)
+  "formula": "legacy", // 'legacy' (OIerDb 官方) 或 'v2' (本项目提案)
+  "displayTopN": 30, // 视频中显示前几名
+  "trackTopN": 50, // 后台跟踪范围 (≥ displayTopN + 缓冲)
   "fps": 120,
-  "framesPerMonth": 120,          // 1 月 = 1 秒
-  "holdStartSec": 1.5,            // 起始定格秒数
-  "holdEndSec": 3,                // 末尾定格秒数
+  "framesPerMonth": 120, // 1 月 = 1 秒
+  "holdStartSec": 1.5, // 起始定格秒数
+  "holdEndSec": 3, // 末尾定格秒数
   "smoothSigmaMonths": 0.15,
   "contestBadge": {
-    "leadMonths": 0.3,            // 渐入窗口宽度（月）
-    "holdMonths": 0.8,            // 全显持续时长
-    "fadeMonths": 1.5,            // 渐出窗口宽度
-    "tieSpreadMonths": 0.08       // 同月事件的微展开
-  }
+    "leadMonths": 0.3, // 渐入窗口宽度（月）
+    "holdMonths": 0.8, // 全显持续时长
+    "fadeMonths": 1.5, // 渐出窗口宽度
+    "tieSpreadMonths": 0.08, // 同月事件的微展开
+  },
 }
 ```
 
@@ -122,14 +122,14 @@ make clean         # 删除渲染产物
 
 ## 两种公式
 
-| 维度 | `legacy` (OIerDb 官方) | `v2` (本项目提案) |
-|---|---|---|
-| 时间因子 | 指数 `1.25^(year-2000)` | 谐和 `1/(1+age/10)` |
-| 数字范围 | 0 ~ 2,800,000+ | 0 ~ 20 |
-| 历史影响 | 10 年前几乎归零 | 10 年前仍有 50% |
-| 规模影响 | 校大 → 分高 | 每校 Top-15 OIer × Top-3 记录截断 |
-| 长尾名次 | 给参加奖算分 | 30% 以后归零 |
-| 解释成本 | 三段查表 + Decimal | 一条公式 |
+| 维度     | `legacy` (OIerDb 官方)  | `v2` (本项目提案)                 |
+| -------- | ----------------------- | --------------------------------- |
+| 时间因子 | 指数 `1.25^(year-2000)` | 谐和 `1/(1+age/10)`               |
+| 数字范围 | 0 ~ 2,800,000+          | 0 ~ 20                            |
+| 历史影响 | 10 年前几乎归零         | 10 年前仍有 50%                   |
+| 规模影响 | 校大 → 分高             | 每校 Top-15 OIer × Top-3 记录截断 |
+| 长尾名次 | 给参加奖算分            | 30% 以后归零                      |
+| 解释成本 | 三段查表 + Decimal      | 一条公式                          |
 
 完整论证、字段定义、想自加公式的同学请看 [`docs/FORMULAS.md`](docs/FORMULAS.md)。
 
@@ -147,10 +147,6 @@ make clean         # 删除渲染产物
 ```bash
 BGM_START=30 MUSIC_VOL=0.7 AFADE_OUT=8 make final
 ```
-
-## 许可协议
-
-**AGPL-3.0-or-later** — 本项目在运行时 `import` 上游 `OIerDb-ng/OIerDb-data-generator` (AGPL-3.0) 的模块，构成衍生作品，须同协议。完整条款见 [`LICENSE`](LICENSE)。
 
 ## 致谢
 
@@ -171,3 +167,7 @@ BGM_START=30 MUSIC_VOL=0.7 AFADE_OUT=8 make final
   note   = {Data from OIerDb (https://github.com/OIerDb-ng), AGPL-3.0-or-later}
 }
 ```
+
+## 许可协议
+
+**AGPL-3.0-or-later** — 本项目在运行时 `import` 上游 `OIerDb-ng/OIerDb-data-generator` (AGPL-3.0) 的模块，构成衍生作品，须同协议。完整条款见 [`LICENSE`](LICENSE)。
