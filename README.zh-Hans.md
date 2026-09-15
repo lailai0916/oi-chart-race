@@ -15,18 +15,25 @@
 
 ![demo](docs/preview.gif)
 
-> 完整 4K MP4 在 [GitHub Releases](../../releases) 下载（每周一自动更新）。
+> 完整 4K MP4 在 [GitHub Releases](https://github.com/lailai0916/oi-chart-race/releases) 下载（每周一自动更新）。
 
 ## 项目特性
 
-- **数据完全来自 OIerDb 公开仓库** — 不抓站、不爬数据，用官方 git submodule
-- **两种打分公式可选** — 沿用 OIerDb 官方的指数衰减 (`legacy`)，或本项目提出的有界谐和衰减 (`v2`)，详见 [`docs/FORMULAS.md`](docs/FORMULAS.md)
-- **真正连续的动画** — 单调三次 Hermite 样条 + Gaussian 平滑排名 + 末帧 swap 收敛，无月度顿挫，最后一帧不卡半
-- **2004 平滑起点** — 早年只有 NOI 一场赛事，里程碑合并到 2005 Dec，2004 全年都有平滑上升
-- **统一深色 Apple Keynote 风格** — Pure-black 底 + 苹方 SC + SF Pro + iOS 系统色
-- **省份编码颜色** — 上榜过的 19 个省各一种颜色，竞赛大省最大化区分
-- **赛事事件 ticker** — 月份切换到 NOI/NOIP/CSP/IOI 时浮入，单调 slot 算法保证浮起后不会回落
-- **一键流水线** — `make video` 出主体动画，`make final` 套封面 + BGM 出成片
+📊 **数据完全来自 OIerDb 公开仓库** — 不抓站、不爬数据，用官方 git submodule。
+
+📐 **两种打分公式可选** — 沿用 OIerDb 官方的指数衰减 (`legacy`)，或本项目提出的有界谐和衰减 (`v2`)，详见 [`docs/FORMULAS.md`](docs/FORMULAS.md)。
+
+🎞️ **真正连续的动画** — 单调三次 Hermite 样条 + Gaussian 平滑排名 + 末帧 swap 收敛，无月度顿挫，最后一帧不卡半。
+
+📅 **2004 平滑起点** — 早年只有 NOI 一场赛事，里程碑合并到 2005 Dec，2004 全年都有平滑上升。
+
+🎨 **统一深色 Apple Keynote 风格** — Pure-black 底 + 苹方 SC + SF Pro + iOS 系统色。
+
+🗺️ **省份编码颜色** — 上榜过的 19 个省各一种颜色，竞赛大省最大化区分。
+
+📣 **赛事事件 ticker** — 月份切换到 NOI/NOIP/CSP/IOI 时浮入，单调 slot 算法保证浮起后不会回落。
+
+⚡ **一键流水线** — `make video` 出主体动画，`make final` 套封面 + BGM 出成片。
 
 ## 快速开始
 
@@ -65,8 +72,8 @@ make clean         # 删除渲染产物
 
 ```bash
 oi-chart-race/
-├── OIerDb-data-generator/          # 上游数据子模块
 ├── docs/                           # 公式、预览与说明
+├── OIerDb-data-generator/          # 上游数据子模块
 ├── output/                         # 生成的数据与视频
 ├── remotion/                       # React 视频项目
 │   └── src/                        # 动画源代码

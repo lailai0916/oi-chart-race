@@ -15,18 +15,25 @@
 
 ![demo](docs/preview.gif)
 
-> Download the full 4K MP4 from [GitHub Releases](../../releases) (auto-updated every Monday).
+> Download the full 4K MP4 from [GitHub Releases](https://github.com/lailai0916/oi-chart-race/releases) (auto-updated every Monday).
 
 ## Project Features
 
-- **Data straight from OIerDb's public repo** — no scraping; the official git submodule is used directly
-- **Two scoring formulas** — the official OIerDb exponential decay (`legacy`), or this project's bounded harmonic decay (`v2`); see [`docs/FORMULAS.md`](docs/FORMULAS.md)
-- **Genuinely continuous animation** — monotone cubic Hermite splines + Gaussian-smoothed ranks + last-frame swap convergence; no monthly stutter, no half-stuck final frame
-- **Smooth 2004 start** — early years had only NOI; milestones are merged into Dec 2005, and 2004 rises smoothly all year
-- **Unified dark Apple-Keynote look** — pure-black background + PingFang SC + SF Pro + iOS system colors
-- **Province-coded colors** — one color for each of the 19 provinces that ever ranked, maximizing contrast for the dominant ones
-- **Contest event ticker** — floats in on NOI/NOIP/CSP/IOI months; a monotone slot algorithm keeps it from dropping back once raised
-- **One-command pipeline** — `make video` for the main animation, `make final` for the finished cut with cover + BGM
+📊 **Data straight from OIerDb's public repo** — no scraping; the official git submodule is used directly.
+
+📐 **Two scoring formulas** — the official OIerDb exponential decay (`legacy`), or this project's bounded harmonic decay (`v2`); see [`docs/FORMULAS.md`](docs/FORMULAS.md).
+
+🎞️ **Genuinely continuous animation** — monotone cubic Hermite splines + Gaussian-smoothed ranks + last-frame swap convergence; no monthly stutter, no half-stuck final frame.
+
+📅 **Smooth 2004 start** — early years had only NOI; milestones are merged into Dec 2005, and 2004 rises smoothly all year.
+
+🎨 **Unified dark Apple-Keynote look** — pure-black background + PingFang SC + SF Pro + iOS system colors.
+
+🗺️ **Province-coded colors** — one color for each of the 19 provinces that ever ranked, maximizing contrast for the dominant ones.
+
+📣 **Contest event ticker** — floats in on NOI/NOIP/CSP/IOI months; a monotone slot algorithm keeps it from dropping back once raised.
+
+⚡ **One-command pipeline** — `make video` for the main animation, `make final` for the finished cut with cover + BGM.
 
 ## Getting Started
 
@@ -65,8 +72,8 @@ make clean         # remove render artifacts
 
 ```bash
 oi-chart-race/
-├── OIerDb-data-generator/          # Upstream data submodule
 ├── docs/                           # Formulas, previews, and notes
+├── OIerDb-data-generator/          # Upstream data submodule
 ├── output/                         # Generated datasets and videos
 ├── remotion/                       # React video project
 │   └── src/                        # Animation source code
