@@ -1,6 +1,6 @@
 <div align="center">
   <h1>OI Chart Race</h1>
-  <p><a href="README.md">English</a> | 简体中文</p>
+  <p><a href="README.md">English</a> · <strong>简体中文</strong></p>
   <p>
     <img src="https://img.shields.io/github/last-commit/lailai0916/oi-chart-race?style=flat-square" />
     <img src="https://img.shields.io/github/languages/top/lailai0916/oi-chart-race?style=flat-square" />
